@@ -74,6 +74,7 @@ wwwroot\uploads\2ebd97c3-bd3f-4179-834f-6da95a73549f.jpg
 wwwroot\uploads\390c3213-1eac-4f67-941b-bd792b9bc3e9.jpg
 wwwroot\uploads\3ea5dfeb-3a5f-48da-ab86-202692180ca9.jpg
 wwwroot\uploads\49ba7fbb-8ada-48cd-9c19-059383df4779.jpg
+wwwroot\uploads\4bf9100c-b115-461e-9826-b20658004310.png
 wwwroot\uploads\4c3bda90-6bcf-4bd3-9131-42fbae85ba7d.webp
 wwwroot\uploads\4e851874-8fa6-4133-8571-a311fbc6f67b.jpg
 wwwroot\uploads\510b4212-7006-434f-bbb1-cccd77b01a13.png
