@@ -1,0 +1,535 @@
+﻿@using EventMenegmentUI.Models
+@model HomeViewModel
+
+
+
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<body class="bg-dark text-light" style="font-family: 'Poppins', sans-serif;">
+
+
+
+    <!-- Hero Section -->
+    <section style="background-image: url('@Url.Content("~/Images/Background.jpg")'); ; background-size: cover; background-position: center;height:600px" class="position-relative overflow-hidden" style="height: 100vh; min-height: 700px; ">
+
+        <!-- Gradient Overlay -->
+        <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark bg-opacity-75"></div>
+
+        <!-- Content -->
+        <div class="container h-100 d-flex align-items-center position-relative" style="z-index: 2;">
+            <div class="row justify-content-center text-center w-100">
+                <div class="col-lg-10">
+                    <!-- Badge -->
+                    <div class="d-inline-flex align-items-center bg-primary bg-opacity-25 border border-primary border-opacity-50 rounded-pill px-4 py-2 mb-4">
+                        <span class="bg-primary rounded-circle me-2" style="width: 8px; height: 8px;"></span>
+                        <small class="text-primary fw-semibold">Yeni Təcrübə</small>
+                    </div>
+
+                    <!-- Main Title -->
+                    <h1 class="display-1 fw-bold mb-4 text-white" style="font-family: 'Montserrat', sans-serif; line-height: 1.1;">
+                        EventX-ə xoş gəlmisiniz!
+                    </h1>
+
+                    <!-- Subtitle -->
+                    <p class="fs-4 text-light mb-5 mx-auto" style="max-width: 700px;">
+                        Seminar, Bootcamp və Masterclass-lar - Peşəkar inkişafınız üçün ən yaxşı tədbirlər
+                    </p>
+
+                    <!-- CTA Buttons -->
+                    <div class="d-flex flex-column flex-sm-row gap-3 justify-content-center">
+                        <a asp-controller="Events" asp-action="index" class="btn btn-warning btn-lg fw-semibold px-5 py-3 rounded-pill text-dark">
+                            Tədbirlərə bax
+                            <i class="fas fa-arrow-right ms-2"></i>
+                        </a>
+                        <a asp-controller="Account" asp-action="SignUp" class="btn btn-outline-light btn-lg fw-semibold px-5 py-3 rounded-pill">
+                            Qeydiyyatdan keç
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Decorative Elements -->
+        <div class="position-absolute top-0 end-0 w-25 h-25 bg-primary bg-opacity-10 rounded-circle" style="transform: translate(50%, -50%);"></div>
+        <div class="position-absolute bottom-0 start-0 w-25 h-25 bg-warning bg-opacity-10 rounded-circle" style="transform: translate(-50%, 50%);"></div>
+    </section>
+
+    <!-- Events Section -->
+    <section class="py-5 bg-dark">
+        <div class="container py-5">
+            <!-- Section Header -->
+            <div class="text-center mb-5">
+                <h2 class="display-4 fw-bold text-primary mb-3" style="font-family: 'Montserrat', sans-serif;">
+                    Tədbirlərimiz
+                </h2>
+                <div class="bg-primary mx-auto rounded-pill mb-4" style="width: 80px; height: 4px;"></div>
+                <p class="fs-5  mx-auto" style="max-width: 600px;">
+                    İxtisaslaşmış təlimlər və peşəkar inkişaf üçün nəzərdə tutulmuş tədbirlər
+                </p>
+            </div>
+
+            <div class="row g-4 mb-4">
+                @foreach (var evt in Model.Events)
+                {
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card bg-secondary bg-opacity-25 border-secondary border-opacity-50 h-100 rounded-4 shadow-lg overflow-hidden">
+                            <div class="position-relative">
+                                <img src="~/Images/@evt.ImageUrl"
+                                     class="card-img-top" style="height: 220px; object-fit: cover;" alt="Seminar">
+                                <div class="position-absolute top-3 end-3">
+                                    <span class="badge bg-warning text-dark fw-semibold px-3 py-2 rounded-pill">Yeni</span>
+                                </div>
+                            </div>
+                            <div class="card-body p-4">
+                                <div class="d-inline-block bg-primary text-white px-3 py-1 rounded-pill small fw-semibold mb-3">
+                                    @evt.Date.ToString("dd MMMM yyyy")
+                                </div>
+                                <h3 class="card-title h4 text-white fw-bold mb-3">@evt.Name</h3>
+                                <p class="card-text text-light-emphasis mb-4">
+                                    @evt.Description
+                                </p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span class="text-muted small">
+                                        <i class="fas fa-map-marker-alt me-2 text-primary"></i>
+                                        @evt.Location.Name
+                                    </span>
+                                    <a asp-controller="Events" asp-action="Index" class="btn btn-primary btn-sm fw-semibold px-4 rounded-pill ">Ətraflı</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+
+
+
+    </section>
+
+    <!-- Categories Section -->
+    <section class="py-5" style="background: linear-gradient(135deg, #0f172a, #1e293b);">
+        <div class="container py-5">
+            <!-- Section Header -->
+            <div class="text-center mb-5">
+                <h2 class="display-4 fw-bold text-primary mb-3" style="font-family: 'Montserrat', sans-serif;">
+                    Kateqoriyalar
+                </h2>
+                <div class="bg-primary mx-auto rounded-pill mb-4" style="width: 80px; height: 4px;"></div>
+                <p class="fs-5 text-light-emphasis mx-auto" style="max-width: 600px;">
+                    Maraqlandığınız sahəyə görə tədbirləri kəşf edin
+                </p>
+            </div>
+
+            <!-- Category Cards -->
+            <div class="row g-4 justify-content-center">
+                @foreach (var category in Model.EventTypes)
+                {
+                    <div class="col-lg-2 col-md-4 col-6">
+                        <div class="card bg-secondary bg-opacity-25 border-secondary border-opacity-50 h-100 text-center rounded-4 shadow">
+                            <div class="card-body p-4 d-flex flex-column justify-content-center">
+
+                                <h4 class="h6 text-white fw-semibold mb-0"><a style="text-decoration:none; color:white" href="#">@category.Name</a></h4>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+
+
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Locations Section -->
+    <section class="py-5 bg-dark">
+        <div class="container py-5">
+            <!-- Section Header -->
+            <div class="text-center mb-5">
+                <h2 class="display-4 fw-bold text-primary mb-3" style="font-family: 'Montserrat', sans-serif;">
+                    Məkanlarımız
+                </h2>
+                <div class="bg-primary mx-auto rounded-pill mb-4" style="width: 80px; height: 4px;"></div>
+                <p class="fs-5 text-light-emphasis mx-auto" style="max-width: 600px;">
+                    Yüksək keyfiyyətli avadanlıqlarla təchiz edilmiş məkanlarımız
+                </p>
+            </div>
+
+            <!-- Location Cards -->
+            <div class="row g-4">
+                @foreach (var location in Model.Locations)
+                {
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card bg-transparent border-0 position-relative overflow-hidden rounded-4 shadow-lg h-100">
+                            <img src="~/Images/@location.ImageUrl"
+                                 class="card-img rounded-4" style="height: 280px; object-fit: cover;" alt="Məkan 1">
+                            <div class="card-img-overlay d-flex flex-column justify-content-end bg-dark bg-opacity-50 rounded-4">
+                                <div class="position-absolute top-0 end-0 border-warning border-top border-end border-3"></div>
+                                <h3 class="card-title h4 text-white fw-bold mb-2">@location.Name</h3>
+                                <p class="card-text text-light small mb-3">@location.Capacity nəfərlik geniş seminar zalı</p>
+                                <a href="#" class="btn btn-primary btn-sm fw-semibold px-4 rounded-pill align-self-start">Rezerv et</a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-5" style="background: linear-gradient(135deg, #0f172a, #1e293b);">
+        <div class="container py-5">
+            <!-- Section Header -->
+            <div class="text-center mb-5">
+                <h2 class="display-4 fw-bold text-primary mb-3" style="font-family: 'Montserrat', sans-serif;">
+                    Öne Çıxan Xüsusiyyətlər
+                </h2>
+                <div class="bg-primary mx-auto rounded-pill mb-4" style="width: 80px; height: 4px;"></div>
+                <p class="fs-5 text-light-emphasis mx-auto" style="max-width: 600px;">
+                    EventX ilə tədbir təşkili asan və effektiv olur
+                </p>
+            </div>
+
+            <!-- Feature Cards -->
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="card bg-secondary bg-opacity-25 border-secondary border-opacity-50 h-100 text-center rounded-4 shadow p-4">
+                        <div class="card-body">
+                            <div class="fs-1 text-primary mb-4">
+                                <i class="fas fa-calendar-plus"></i>
+                            </div>
+                            <h4 class="h5 text-white fw-bold mb-3">Tədbir Yaradın</h4>
+                            <p class="text-light-emphasis">Asan və sürətli interfeys ilə tədbirlərinizi dəqiqələr ərzində planlayın.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="card bg-secondary bg-opacity-25 border-secondary border-opacity-50 h-100 text-center rounded-4 shadow p-4">
+                        <div class="card-body">
+                            <div class="fs-1 text-primary mb-4">
+                                <i class="fas fa-ticket-alt"></i>
+                            </div>
+                            <h4 class="h5 text-white fw-bold mb-3">Smart Biletlər</h4>
+                            <p class="text-light-emphasis">Biletləri idarə edin, iştirakçıların təsdiq/rədd vəziyyətlərini izləyin.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="card bg-secondary bg-opacity-25 border-secondary border-opacity-50 h-100 text-center rounded-4 shadow p-4">
+                        <div class="card-body">
+                            <div class="fs-1 text-primary mb-4">
+                                <i class="fas fa-qrcode"></i>
+                            </div>
+                            <h4 class="h5 text-white fw-bold mb-3">QR Check-in</h4>
+                            <p class="text-light-emphasis">QR kod sistemi ilə iştirakları sürətlə yoxlayın.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="card bg-secondary bg-opacity-25 border-secondary border-opacity-50 h-100 text-center rounded-4 shadow p-4">
+                        <div class="card-body">
+                            <div class="fs-1 text-primary mb-4">
+                                <i class="fas fa-chair"></i>
+                            </div>
+                            <h4 class="h5 text-white fw-bold mb-3">Oturacaq Planı</h4>
+                            <p class="text-light-emphasis">Oturacaqları tənzimləyin, doluluq vəziyyətini anlıq olaraq görün.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="card bg-secondary bg-opacity-25 border-secondary border-opacity-50 h-100 text-center rounded-4 shadow p-4">
+                        <div class="card-body">
+                            <div class="fs-1 text-primary mb-4">
+                                <i class="fas fa-bell"></i>
+                            </div>
+                            <h4 class="h5 text-white fw-bold mb-3">Xatırlatma Bildirişləri</h4>
+                            <p class="text-light-emphasis">Tədbirdən əvvəl avtomatik xatırlatma mesajları göndərin.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="card bg-secondary bg-opacity-25 border-secondary border-opacity-50 h-100 text-center rounded-4 shadow p-4">
+                        <div class="card-body">
+                            <div class="fs-1 text-primary mb-4">
+                                <i class="fas fa-poll"></i>
+                            </div>
+                            <h4 class="h5 text-white fw-bold mb-3">Rəy Sorğuları</h4>
+                            <p class="text-light-emphasis">Tədbir sonrası sorğularla iştirakçı məmnuniyyətini ölçün.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-5 bg-dark">
+        <div class="container py-5">
+            <!-- Section Header -->
+            <div class="text-center mb-5">
+                <h2 class="display-4 fw-bold text-warning mb-3" style="font-family: 'Montserrat', sans-serif;">
+                    💬 İstifadəçi Rəyləri
+                </h2>
+                <div class="bg-warning mx-auto rounded-pill mb-4" style="width: 80px; height: 4px;"></div>
+                <p class="fs-5 text-light-emphasis mx-auto" style="max-width: 600px;">
+                    Tədbir təşkilatçıları və iştirakçılarımızın fikirləri
+                </p>
+            </div>
+
+            <!-- Testimonial Cards -->
+            <div class="row g-4">
+                <div class="col-lg-6">
+                    <div class="card bg-secondary bg-opacity-25 border-secondary border-opacity-50 rounded-4 shadow p-4 h-100 position-relative">
+                        <div class="position-absolute top-0 start-0 text-primary opacity-25" style="font-size: 4rem; line-height: 1;">"</div>
+                        <div class="card-body pt-4">
+                            <p class="text-light fst-italic mb-4 fs-5">
+                                "Bu tədbir idarəetmə sistemi işimi inanılmaz dərəcədə asanlaşdırdı. Mütləq tövsiyə edirəm!"
+                            </p>
+                            <div class="d-flex align-items-center">
+                                <div class="bg-primary rounded-circle d-flex align-items-center justify-content-center me-3 text-white fw-bold" style="width: 60px; height: 60px;">
+                                    E
+                                </div>
+                                <div>
+                                    <h5 class="text-white fw-semibold mb-1">Elif Yılmaz</h5>
+                                    <p class="text-primary mb-0 small">İştirakçı</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card bg-secondary bg-opacity-25 border-secondary border-opacity-50 rounded-4 shadow p-4 h-100 position-relative">
+                        <div class="position-absolute top-0 start-0 text-primary opacity-25" style="font-size: 4rem; line-height: 1;">"</div>
+                        <div class="card-body pt-4">
+                            <p class="text-light fst-italic mb-4 fs-5">
+                                "Davetiyələri izləmək artıq çox asandır, əla bir sistem! Xüsusilə analitik hissə çox faydalıdır."
+                            </p>
+                            <div class="d-flex align-items-center">
+                                <div class="bg-primary rounded-circle d-flex align-items-center justify-content-center me-3 text-white fw-bold" style="width: 60px; height: 60px;">
+                                    A
+                                </div>
+                                <div>
+                                    <h5 class="text-white fw-semibold mb-1">Ahmet Demir</h5>
+                                    <p class="text-primary mb-0 small">Təşkilatçı</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card bg-secondary bg-opacity-25 border-secondary border-opacity-50 rounded-4 shadow p-4 h-100 position-relative">
+                        <div class="position-absolute top-0 start-0 text-primary opacity-25" style="font-size: 4rem; line-height: 1;">"</div>
+                        <div class="card-body pt-4">
+                            <p class="text-light fst-italic mb-4 fs-5">
+                                "Check-in sistemində vaxta çox qənaət etdik. İştirakçılar da QR kod ilə girişi çox bəyəndilər."
+                            </p>
+                            <div class="d-flex align-items-center">
+                                <div class="bg-primary rounded-circle d-flex align-items-center justify-content-center me-3 text-white fw-bold" style="width: 60px; height: 60px;">
+                                    Z
+                                </div>
+                                <div>
+                                    <h5 class="text-white fw-semibold mb-1">Zeynep Kaya</h5>
+                                    <p class="text-primary mb-0 small">Event Manager</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card bg-secondary bg-opacity-25 border-secondary border-opacity-50 rounded-4 shadow p-4 h-100 position-relative">
+                        <div class="position-absolute top-0 start-0 text-primary opacity-25" style="font-size: 4rem; line-height: 1;">"</div>
+                        <div class="card-body pt-4">
+                            <p class="text-light fst-italic mb-4 fs-5">
+                                "Oturacaq planı xüsusiyyəti konfranslarımızda çox böyük problemimizi həll etdi. Təşəkkürlər EventX!"
+                            </p>
+                            <div class="d-flex align-items-center">
+                                <div class="bg-primary rounded-circle d-flex align-items-center justify-content-center me-3 text-white fw-bold" style="width: 60px; height: 60px;">
+                                    M
+                                </div>
+                                <div>
+                                    <h5 class="text-white fw-semibold mb-1">Mehmet Yıldız</h5>
+                                    <p class="text-primary mb-0 small">Konfrans Təşkilatçısı</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-5 position-relative overflow-hidden" style="background: linear-gradient(rgba(2, 6, 23, 0.9), rgba(2, 6, 23, 0.9)), url('https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80'); background-size: cover; background-position: center;">
+        <div class="container py-5">
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6">
+                    <div class="card bg-dark bg-opacity-50 border-primary border-opacity-25 text-center rounded-4 shadow p-4 h-100">
+                        <div class="card-body">
+                            <div class="fs-1 text-primary mb-3">
+                                <i class="fas fa-calendar-check"></i>
+                            </div>
+                            <div class="display-4 fw-bold text-primary mb-2">256</div>
+                            <h5 class="text-white fw-semibold">Keçirilən Tədbir</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="card bg-dark bg-opacity-50 border-primary border-opacity-25 text-center rounded-4 shadow p-4 h-100">
+                        <div class="card-body">
+                            <div class="fs-1 text-primary mb-3">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="display-4 fw-bold text-primary mb-2">18,250</div>
+                            <h5 class="text-white fw-semibold">İştirakçı</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="card bg-dark bg-opacity-50 border-primary border-opacity-25 text-center rounded-4 shadow p-4 h-100">
+                        <div class="card-body">
+                            <div class="fs-1 text-primary mb-3">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="display-4 fw-bold text-primary mb-2">42</div>
+                            <h5 class="text-white fw-semibold">Məkan</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="card bg-dark bg-opacity-50 border-primary border-opacity-25 text-center rounded-4 shadow p-4 h-100">
+                        <div class="card-body">
+                            <div class="fs-1 text-primary mb-3">
+                                <i class="fas fa-chalkboard-teacher"></i>
+                            </div>
+                            <div class="display-4 fw-bold text-primary mb-2">120</div>
+                            <h5 class="text-white fw-semibold">Təlimçi</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="py-5 bg-dark">
+        <div class="container py-5">
+            <div class="card bg-primary rounded-4 shadow-lg overflow-hidden position-relative">
+                <div class="position-absolute top-0 start-0 w-100 h-100 bg-primary bg-opacity-10"></div>
+                <div class="card-body p-5 text-center position-relative">
+                    <h3 class="display-5 fw-bold text-white mb-4" style="font-family: 'Montserrat', sans-serif;">
+                        Yeniliklərdən Xəbərdar Olun
+                    </h3>
+                    <p class="fs-5 text-white mb-5 mx-auto" style="max-width: 600px;">
+                        Yeni tədbirlər, endirimlər və xüsusi təkliflər haqqında məlumat almaq üçün abunə olun.
+                    </p>
+                    <div class="row justify-content-center">
+                        <div class="col-lg-6">
+                            <div class="input-group input-group-lg">
+                                <input type="email" class="form-control rounded-start-pill border-0" placeholder="E-poçt ünvanınız">
+                                <button class="btn btn-dark rounded-end-pill fw-semibold px-4" type="button">
+                                    Abunə ol
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark border-top border-primary border-opacity-25">
+        <div class="container py-5">
+            <div class="row g-5">
+                <div class="col-lg-4">
+                    <h3 class="fw-bold text-primary mb-4" style="font-family: 'Montserrat', sans-serif;">
+                        Event<span class="text-warning">X</span>
+                    </h3>
+                    <p class="text-light-emphasis mb-4">
+                        Tədbir təşkili və idarəetmə üçün ən inkişaf etmiş platforma. Bizimlə tədbirləriniz daha effektiv və yaddaqalan olacaq.
+                    </p>
+                    <div class="d-flex gap-3">
+                        <a href="#" class="btn btn-outline-primary btn-sm rounded-circle" style="width: 45px; height: 45px;">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="btn btn-outline-primary btn-sm rounded-circle" style="width: 45px; height: 45px;">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="btn btn-outline-primary btn-sm rounded-circle" style="width: 45px; height: 45px;">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="btn btn-outline-primary btn-sm rounded-circle" style="width: 45px; height: 45px;">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="btn btn-outline-primary btn-sm rounded-circle" style="width: 45px; height: 45px;">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4">
+                    <h5 class="text-white fw-semibold mb-4 position-relative">
+                        Səhifələr
+                        <div class="bg-primary position-absolute bottom-0 start-0 rounded" style="width: 50px; height: 3px;"></div>
+                    </h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-3"><a href="#" class="text-light-emphasis text-decoration-none">Ana Səhifə</a></li>
+                        <li class="mb-3"><a href="#" class="text-light-emphasis text-decoration-none">Tədbirlər</a></li>
+                        <li class="mb-3"><a href="#" class="text-light-emphasis text-decoration-none">Kateqoriyalar</a></li>
+                        <li class="mb-3"><a href="#" class="text-light-emphasis text-decoration-none">Məkanlar</a></li>
+                        <li class="mb-3"><a href="#" class="text-light-emphasis text-decoration-none">Haqqımızda</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4">
+                    <h5 class="text-white fw-semibold mb-4 position-relative">
+                        Xidmətlər
+                        <div class="bg-primary position-absolute bottom-0 start-0 rounded" style="width: 50px; height: 3px;"></div>
+                    </h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-3"><a href="#" class="text-light-emphasis text-decoration-none">Tədbir Təşkili</a></li>
+                        <li class="mb-3"><a href="#" class="text-light-emphasis text-decoration-none">Məkan Rezervasiya</a></li>
+                        <li class="mb-3"><a href="#" class="text-light-emphasis text-decoration-none">Bilet Satışı</a></li>
+                        <li class="mb-3"><a href="#" class="text-light-emphasis text-decoration-none">Marketinq Dəstəyi</a></li>
+                        <li class="mb-3"><a href="#" class="text-light-emphasis text-decoration-none">Analitik Hesabatlar</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-4">
+                    <h5 class="text-white fw-semibold mb-4 position-relative">
+                        Əlaqə
+                        <div class="bg-primary position-absolute bottom-0 start-0 rounded" style="width: 50px; height: 3px;"></div>
+                    </h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-3 text-light-emphasis">
+                            <i class="fas fa-map-marker-alt me-2 text-primary"></i>
+                            Bakı, Nərimanov
+                        </li>
+                        <li class="mb-3 text-light-emphasis">
+                            <i class="fas fa-phone me-2 text-primary"></i>
+                            +994 12 345 67 89
+                        </li>
+                        <li class="mb-3 text-light-emphasis">
+                            <i class="fas fa-envelope me-2 text-primary"></i>
+                            info@eventx.az
+                        </li>
+                        <li class="mb-3 text-light-emphasis">
+                            <i class="fas fa-clock me-2 text-primary"></i>
+                            B.e - Ş.b: 09:00 - 18:00
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="border-secondary border-opacity-25 my-5">
+            <div class="text-center">
+                <p class="text-muted mb-0">&copy; 2025 EventX. Bütün hüquqlar qorunur.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

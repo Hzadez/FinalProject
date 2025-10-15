@@ -1,0 +1,59 @@
+﻿@using EventMenegmentUI.Models
+@model IEnumerable<InivitationAcceptViewModel>
+
+@{
+    ViewData["Title"] = "Dəvət Detalları";
+}
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+<div class="container py-5">
+    @if (Model == null || !Model.Any())
+    {
+        <div class="alert alert-info text-center" role="alert">
+            <p class="h3 mb-0">Heç bir Dəvət yoxdur.</p>
+        </div>
+    }
+    else
+    {
+        <h2 class="mb-4 text-center">Dəvətləriniz</h2>
+        <div class="row g-4">
+            @* Use g-4 for consistent gutter spacing *@
+            @foreach (var item in Model)
+            {
+                <div class="col-md-6 col-lg-4">
+                    @* Responsive columns for better layout *@
+                    <div class="card h-100 shadow-sm border-0">
+                        @* h-100 for equal height cards, border-0 for cleaner look *@
+                        <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+                            <h5 class="card-title mb-0">@item.Title</h5>
+                            @* Optional: You could add an icon here if desired *@
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text mb-2"><strong>Təsvir:</strong> @item.Description</p>
+                            <p class="card-text mb-2"><strong>Tədbir adı:</strong> @item.EventName</p>
+                            <p class="card-text mb-2"><strong>Tarix:</strong> @item.EventDate</p>
+                            <p class="card-text mb-0"><strong>Yer:</strong> @item.EventLocation</p>
+                        </div>
+                        <div class="card-footer bg-light border-top d-flex justify-content-end gap-2">
+                            @* Add gap-2 for spacing between buttons *@
+                            <form asp-controller="Inivitiation" asp-action="Accept" asp-route-id="@item.Id" method="post" class="d-inline">
+                                <button type="submit" class="btn btn-success btn-sm">
+                                    <i class="bi bi-check-circle-fill me-1"></i> Qəbul Et
+                                </button>
+                            </form>
+                            <form asp-controller="Inivitiation" asp-action="Decline" asp-route-id="@item.Id" method="post" class="d-inline">
+                                <button type="submit" class="btn btn-danger btn-sm">
+                                    <i class="bi bi-x-circle-fill me-1"></i> Rədd Et
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+</div>
+
+@* Optional: Add Bootstrap Icons for better visuals *@
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">

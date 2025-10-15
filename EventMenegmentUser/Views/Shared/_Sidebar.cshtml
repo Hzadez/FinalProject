@@ -1,0 +1,109 @@
+﻿<div class="d-flex flex-column flex-shrink-0 p-3 bg-light vh-100 shadow-sm" style="width: 250px;">
+	<a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-decoration-none">
+		<span class="fs-4 text-primary fw-bold">Admin Panel</span>
+	</a>
+
+<ul style="text-decoration:none">
+   
+
+	<li class="nav-item mb-3" >
+			<a class="nav-link collapsed mt-2"asp-controller="Event" asp-action="Index" data-toggle="collapse" data-target="#collapseBook"
+		   aria-expanded="true" aria-controls="collapseBook">
+			<i class="fas fa-book"></i>
+			<span>Events</span>
+		</a>
+		
+	
+	</li>
+		@if (User.IsInRole("Admin"))
+		{
+			<li class="nav-item mb-3">
+				<a class="nav-link collapsed mt-2" asp-controller="EventType" asp-action="Index" data-toggle="collapse" data-target="#collapseBook"
+				   aria-expanded="true" aria-controls="collapseBook">
+					<i class="fas fa-book"></i>
+					<span>EventTypes</span>
+				</a>
+
+
+			</li>
+		}
+
+		@if (User.IsInRole("Admin"))
+		{
+		
+		<li class="nav-item mb-3">
+			<a class="nav-link collapsed mt-2"asp-controller="Location" asp-action="Index" data-toggle="collapse" data-target="#collapseBook"
+		   aria-expanded="true" aria-controls="collapseBook">
+			<i class="fas fa-book"></i>
+			<span>Locations</span>
+		</a>
+
+	
+	
+	</li>
+		}
+		<li class="nav-item mb-3">
+			<a class="nav-link collapsed mt-2"asp-controller="Organizer" asp-action="Index" data-toggle="collapse" data-target="#collapseBook"
+		   aria-expanded="true" aria-controls="collapseBook">
+			<i class="fas fa-book"></i>
+			<span>Organizer</span>
+		</a>
+
+	
+	
+	</li>
+	
+	@if (User.IsInRole("Admin"))
+		{
+		
+	
+		<li class="nav-item mb-3">
+			<a class="nav-link collapsed mt-2"asp-controller="Role" asp-action="Index" data-toggle="collapse" data-target="#collapseBook"
+		   aria-expanded="true" aria-controls="collapseBook">
+			<i class="fas fa-book"></i>
+			<span>Roles</span>
+		</a>
+
+	
+	
+	</li>
+		}
+	</li>
+	
+		<li class="nav-item mb-3">
+			<a class="nav-link collapsed mt-2"asp-controller="Users" asp-action="Index" data-toggle="collapse" data-target="#collapseBook"
+		   aria-expanded="true" aria-controls="collapseBook">
+			<i class="fas fa-book"></i>
+			<span>Users</span>
+		</a>
+
+	
+	
+	</li>
+	
+	</li>
+	
+		<li class="nav-item mb-3">
+			<a class="nav-link collapsed mt-2" asp-controller="Invitation" asp-action="Create" data-toggle="collapse" data-target="#collapseBook"
+		   aria-expanded="true" aria-controls="collapseBook">
+			<i class="fas fa-book"></i>
+			<span>Inivitations</span>
+		</a>
+
+	
+	
+	</li>
+	
+
+ 
+	
+
+
+
+
+
+
+	
+
+</ul>
+</div>

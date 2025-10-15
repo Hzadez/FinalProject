@@ -1,0 +1,106 @@
+﻿@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+@using System.Security.Claims
+
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+@using System.Security.Claims
+
+<!-- Navbar -->
+<nav class="flex items-center justify-between p-4 bg-gradient-to-r from-gray-800 via-gray-900 to-gray-800 shadow-lg">
+
+    <!-- Logo -->
+    <a href="#">
+        <img style="height:10px; width:15px;" src="@Url.Content("~/images/EventX.png")" />
+    </a>
+
+    <!-- Menü -->
+    <div style="margin-left:100px" class="hidden md:flex items-center justify-between w-full px-8">
+
+        <!-- Ortadakı linklər -->
+        <div class="flex-1 flex justify-center space-x-8">
+            <a asp-controller="Home" asp-action="Index" class="text-gray-300 hover:text-purple-400 transition" style="text-decoration:none">Anasayfa</a>
+            <a asp-controller="Events" asp-action="Index" class="text-gray-300 hover:text-purple-400 transition" style="text-decoration:none">Tədbirlər</a>
+            <a asp-controller="Organizer" asp-action="Index" class="text-gray-300 hover:text-purple-400 transition" style="text-decoration:none">Təşkilatçılar</a>
+            <a asp-controller="Location" asp-action="Index" class="text-gray-300 hover:text-purple-400 transition" style="text-decoration:none">Məkanlar</a>
+        </div>
+
+        <!-- Sağdakı profil menyusu -->
+        <div class="relative group mr-5">
+            <button class="flex items-center text-gray-300 hover:text-purple-400 transition focus:outline-none">
+                @{
+                    var userName = HttpContextAccessor.HttpContext.Request.Cookies["UserName"];
+                }
+
+                @if (!string.IsNullOrEmpty(userName))
+                {
+                    <span>Salam, @userName</span>
+                    <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                }
+                else
+                {
+                    <a class="btn btn-light btn-sm ml-3" asp-controller="Account" asp-action="SignIn">Sign In</a>
+                    <a class="btn btn-primary btn-sm ml-3" asp-controller="Account" asp-action="SignUp">Sign Up</a>
+                }
+            </button>
+
+            @if (User?.Identity?.IsAuthenticated ?? false)
+            {
+                var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+                <!-- Dropdown menyu -->
+                <div class="absolute right-0 w-48 bg-gray-800 rounded-md shadow-lg hidden group-hover:block z-50">
+                    <a asp-controller="Inivitiation" asp-action="Index" asp-route-userId="@userId" class="block px-4 py-2 text-sm text-gray-300 hover:bg-purple-600 hover:text-white" style="text-decoration:none">Dəvətlər</a>
+
+                    <form asp-controller="Participationn" asp-action="Create" asp-route-userId="@userId" method="post">
+                        <button class="block px-4 py-2 text-sm text-gray-300 hover:bg-purple-600 hover:text-white" style="text-decoration:none" type="submit">Check-in</button>
+                    </form>
+
+
+                    <a href="#"
+                       class="block px-4 py-2 text-sm text-gray-300 hover:bg-purple-600 hover:text-white" style="text-decoration:none">Bildirişlər</a>
+                </div>
+            }
+        </div>
+
+        <!-- Çıxış düyməsi -->
+        @if (User.Identity.IsAuthenticated)
+        {
+            <form asp-controller="Account" asp-action="Logout" method="post" class="form-inline">
+                <button type="submit" class="btn btn-primary btn-sm">Çıxış</button>
+            </form>
+        }
+    </div>
+
+    <!-- Mobil menyu ikonu -->
+    <button class="md:hidden text-gray-300 hover:text-purple-400">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+    </button>
+
+</nav>
+
+
+<!-- Anime.js Animasyon -->
+<script>
+    // Logo animasyonu
+    anime({
+        targets: '.logo',
+        scale: [0.8, 1],
+        opacity: [0, 1],
+        duration: 1200,
+        easing: 'easeOutExpo'
+    });
+
+    // Menü linkleri animasyonu
+    anime({
+        targets: '.menu-links a',
+        opacity: [0, 1],
+        translateY: [-20, 0],
+        delay: anime.stagger(150, { start: 500 }),
+        duration: 800,
+        easing: 'easeOutExpo'
+    });
+</script>

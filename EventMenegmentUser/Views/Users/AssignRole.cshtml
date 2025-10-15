@@ -1,0 +1,37 @@
+﻿@using EventMenegmentAdmin.Models
+
+@model AssignRoleViewModel
+
+<div class="container mt-5">
+    <link rel="stylesheet" href="~/css/style.css" />
+
+    <div class="card shadow-lg p-4">
+        <h2 class="card-title text-center mb-4">Assign Role to User</h2>
+
+        <form asp-action="AssignRole" method="post">
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label asp-for="UserId" class="form-label">User</label>
+                    <select asp-for="UserId" class="form-select"
+                            asp-items="@(new SelectList(Model.Users, "Id", "Name"))">
+                        <option selected hidden value="">-- Select User --</option>
+                    </select>
+                    <span asp-validation-for="UserId" class="text-danger small"></span>
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <label asp-for="RoleName" class="form-label">Role</label>
+                    <select asp-for="RoleName" class="form-select"
+                            asp-items="@(new SelectList(Model.Roles, "Name", "Name"))">
+                        <option selected hidden value="">-- Select Role --</option>
+                    </select>
+                    <span asp-validation-for="RoleName" class="text-danger small"></span>
+                </div>
+            </div>
+
+            <div class="d-grid gap-2 mt-4">
+                <button type="submit" class="btn btn-primary btn-lg">Assign Role</button>
+            </div>
+        </form>
+    </div>
+</div>

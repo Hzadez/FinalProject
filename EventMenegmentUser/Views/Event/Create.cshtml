@@ -1,0 +1,79 @@
+﻿@using EventMenegmentAdmin.DTO
+@model EventDTO
+
+<div class="container mt-5">
+    <link rel="stylesheet" href="~/css/style.css" />
+
+    <div class="card shadow-lg p-4">
+        <h2 class="card-title text-center mb-4">Create New Event</h2>
+
+        <form asp-action="Create" method="post" enctype="multipart/form-data">
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label asp-for="Name" class="form-label">Name</label>
+                        <input asp-for="Name" class="form-control" placeholder="Enter event name" />
+                        <span asp-validation-for="Name" class="text-danger small"></span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label asp-for="Date" class="form-label">Date</label>
+                        <input asp-for="Date" type="datetime-local" class="form-control" />
+                        <span asp-validation-for="Date" class="text-danger small"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Description" class="form-label">Description</label>
+                <textarea asp-for="Description" class="form-control" rows="3" placeholder="Enter event description"></textarea>
+                <span asp-validation-for="Description" class="text-danger small"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Image" class="form-label">Image</label>
+                <input asp-for="Image" type="file" class="form-control" />
+                <span asp-validation-for="Image" class="text-danger small"></span>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="mb-3">
+                        <label asp-for="EventTypeId" class="form-label">Event Type</label>
+                        <select asp-for="EventTypeId" class="form-select"
+                                asp-items="@(new SelectList(Model.EventTypes, "Id", "Name"))">
+                            <option selected hidden value="">-- Select Event Type --</option>
+                        </select>
+                        <span asp-validation-for="EventTypeId" class="text-danger small"></span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="mb-3">
+                        <label asp-for="LocationId" class="form-label">Location</label>
+                        <select asp-for="LocationId" class="form-select"
+                                asp-items="@(new SelectList(Model.Locations, "Id", "Name"))">
+                            <option selected hidden value="">-- Select Location --</option>
+                        </select>
+                        <span asp-validation-for="LocationId" class="text-danger small"></span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="mb-3">
+                        <label asp-for="OrganizerId" class="form-label">Organizer</label>
+                        <select asp-for="OrganizerId" class="form-select"
+                                asp-items="@(new SelectList(Model.Organizers, "Id", "Name"))">
+                            <option selected hidden value="">-- Select Organizer --</option>
+                        </select>
+                        <span asp-validation-for="OrganizerId" class="text-danger small"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="d-grid gap-2 mt-4">
+                <button type="submit" class="btn btn-primary btn-lg">Create Event</button>
+            </div>
+        </form>
+    </div>
+</div>

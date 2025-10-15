@@ -1,0 +1,70 @@
+﻿@using EventMenegmentSL.ViewModel
+@model List<LocationViewModel>
+
+@{
+    ViewData["Title"] = "Məkanlar";
+}
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+<div class="container py-5">
+    <h2 class="text-center text-white fw-bold mb-5 border-bottom pb-3">Aktiv Məkanlar</h2>
+
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        @foreach (var location in Model)
+        {
+            <div class="col">
+                <div class="card bg-dark text-white h-100 shadow-lg border-0 rounded-4 overflow-hidden transform-on-hover">
+                    @if (!string.IsNullOrEmpty(location.ImageUrl))
+                    {
+                        <img src="~/uploads/@location.ImageUrl"
+                             alt="@location.Name"
+                             class="card-img-top"
+                             style="height: 200px; object-fit: cover;" />
+                    }
+                    <div class="card-body d-flex flex-column">
+                        <h3 class="card-title fw-semibold mb-2">@location.Name</h3>
+                        <p class="card-subtitle mb-2 text-info fw-medium">
+                            <i class="fas fa-map-marker-alt me-1"></i> @location.Address
+                        </p>
+                        <p class="card-text text-light mb-2">
+                            <i class="fas fa-users me-1"></i> Tutum: @location.Capacity nəfər
+                        </p>
+                        <p class="card-text text-secondary mb-4 line-clamp">@location.Description</p>
+
+                        <a asp-controller="Location" asp-action="Details" asp-route-id="@location.Id"
+                           class="btn btn-outline-info mt-auto align-self-start">
+                            Ətraflı bax
+                        </a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+<style>
+    .line-clamp {
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .transform-on-hover {
+        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+
+        .transform-on-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.5) !important;
+        }
+
+    body {
+        background-color: #121212;
+    }
+</style>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>

@@ -1,0 +1,115 @@
+﻿@using EventMenegmentAdmin.DTO
+@model List<LocationDTO>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Location Management</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        .table-img {
+            width: 80px; /* Slightly larger image */
+            height: 60px; /* Adjusted height for a more common aspect ratio */
+            object-fit: cover;
+            border-radius: 6px; /* Slightly more rounded corners */
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Subtle shadow for depth */
+        }
+        /* Style for the action buttons container */
+        .actions-cell {
+            min-width: 180px; /* Ensure enough space for buttons to not wrap awkwardly */
+        }
+    </style>
+</head>
+<body class="bg-light">
+
+    <div class="container py-5">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2 class="mb-0 text-primary">Location Overview</h2> @* Changed title and added text-primary *@
+            <a asp-controller="Location" asp-action="Create" class="btn btn-success px-4">
+                @* Changed button color and padding *@
+                <i class="bi bi-plus-lg me-2"></i> Add New Location @* Changed icon and margin *@
+            </a>
+        </div>
+
+        @if (Model == null || !Model.Any())
+        {
+            <div class="alert alert-info text-center py-4" role="alert">
+                @* Added more padding *@
+                <h4 class="alert-heading mb-3">No Locations Found!</h4> @* Added heading to alert *@
+                <p>It looks like there are no locations registered yet. Click the button above to add your first one.</p>
+                <hr>
+                <p class="mb-0">Start managing your event locations efficiently.</p>
+            </div>
+        }
+        else
+        {
+            <div class="card shadow-lg border-0 rounded-3">
+                @* Added border-0 and rounded-3 to card *@
+                <div class="card-body">
+                    @* Moved padding to card-body *@
+                    <div class="table-responsive">
+                        <table class="table table-hover table-striped mb-0 align-middle">
+                            @* Added align-middle *@
+                            <thead class="table-dark">
+                                <tr>
+                                    <th scope="col">Image</th>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Description</th>
+                                    <th scope="col" class="actions-cell text-center">Actions</th> @* Added class and text-center *@
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            @if (!string.IsNullOrEmpty(item.ImageUrl))
+                                            {
+                                                <img src="~/uploads/@item.ImageUrl" class="table-img" alt="Location Image" />
+                                            }
+                                            else
+                                            {
+                                                <span class="text-muted small">No Image</span>
+                                            }
+                                        </td>
+                                        <td><strong class="text-dark">@item.Name</strong></td> @* Bolded name for emphasis *@
+                                        <td>@item.Description</td>
+                                        <td class="actions-cell text-center">
+                                            @* Applied class and text-center *@
+                                            <div class="d-flex flex-column flex-sm-row justify-content-center gap-2">
+                                                @* Centered buttons *@
+                                                @if (User.IsInRole("Admin"))
+                                                {
+                                                    
+                                                <a asp-controller="Location" asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-warning">
+                                                    <i class="bi bi-pencil me-1"></i> Edit
+                                                </a>
+                                                <a asp-controller="Location" asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-info text-white">
+                                                    <i class="bi bi-info-circle me-1"></i> Details
+                                                </a>
+
+                                                <form asp-controller="Location" asp-action="Delete" asp-route-id="@item.Id" method="post" onsubmit="return confirm('Are you sure you want to delete this location? This action cannot be undone.');">
+                                                    <button type="submit" class="btn btn-sm btn-danger">
+                                                        <i class="bi bi-trash me-1"></i> Delete
+                                                    </button>
+                                                </form>
+                                                }
+                                                {
+		
+                                            </div>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

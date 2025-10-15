@@ -1,0 +1,60 @@
+﻿@using EventMenegmentSL.ViewModel
+@model InvitationViewModel
+
+<div class="container my-5">
+    <div class="mx-auto p-4 rounded-4 shadow-lg bg-white" style="max-width: 600px;">
+        <h2 class="mb-4 text-center fw-bold text-dark">Dəvət Yarat</h2>
+
+        <form asp-action="Create" method="post" enctype="multipart/form-data" class="needs-validation" novalidate>
+            <div class="mb-3">
+                <label asp-for="Title" class="form-label fw-semibold text-dark"></label>
+                <input asp-for="Title" class="form-control" />
+                <div class="text-danger small">
+                    <span asp-validation-for="Title"></span>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Description" class="form-label fw-semibold text-dark"></label>
+                <textarea asp-for="Description" class="form-control" rows="4"></textarea>
+                <div class="text-danger small">
+                    <span asp-validation-for="Description"></span>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="EventId" class="form-label fw-semibold text-dark">Event </label>
+                <select asp-for="EventId" class="form-select" asp-items="@(new SelectList(Model.Events, "Id", "Name"))">
+                    <option value="" disabled selected>-- Tədbir seçin --</option>
+                </select>
+                <div class="text-danger small">
+                    <span asp-validation-for="EventId"></span>
+                </div>
+            </div>
+
+            <div class="mb-4">
+                <label class="form-label fw-semibold text-dark" asp-for="SelectedUserIds">İstifadəçiləri seçin</label>
+                <div class="d-flex flex-column" style="max-height: 200px; overflow-y: auto; border: 1px solid #ced4da; border-radius: 0.375rem; padding: 0.5rem; background-color: #fff;">
+                    @foreach (var user in Model.Users)
+                    {
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox"
+                                   name="SelectedUserIds"
+                                   value="@user.Id"
+                                   id="userCheck_@user.Id"
+                                   @(Model.SelectedUserIds != null && Model.SelectedUserIds.Contains(user.Id) ? "checked" : "") />
+                            <label class="form-check-label text-dark" for="userCheck_@user.Id">
+                                @user.FullName
+                            </label>
+                        </div>
+                    }
+                </div>
+                <div class="text-danger small">
+                    <span asp-validation-for="SelectedUserIds"></span>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100 py-2 fw-semibold">Dəvət yarat</button>
+        </form>
+    </div>
+</div>
