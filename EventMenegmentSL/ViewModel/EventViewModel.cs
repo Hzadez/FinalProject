@@ -9,11 +9,9 @@ namespace EventMenegmentSL.ViewModel
         public string Description { get; set; }
         public DateTime Date { get; set; }
         public int EventTypeId { get; set; }
-
         public string ImageUrl { get; set; }
         public int LocationId { get; set; }
         public int OrganizerId { get; set; }
-
         public List<AppUser> Participants { get; set; } = new List<AppUser>();
         public EventType? EventType { get; set; }
         public Location? Location { get; set; }

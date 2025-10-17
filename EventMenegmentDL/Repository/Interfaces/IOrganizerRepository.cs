@@ -6,12 +6,7 @@ namespace EventMenegmentDL.Repository.Interfaces
     {
         Task<List<Organizer>> GetAllOrganizerWithIncludes();
         Task<Organizer> GetByIdOrganizerWithIncludes(int id);
-
         Task<Organizer> Update(Organizer product);
-
-
-
-
 
     }
 

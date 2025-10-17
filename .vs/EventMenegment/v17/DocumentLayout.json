@@ -3,24 +3,28 @@
   "WorkspaceRootPath": "C:\\Users\\user\\Desktop\\FinalProject\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{02E4AF89-EDD3-487E-A69E-9EF608237A69}|EventMenegmentUser\\EventMenegmentAdmin.csproj|c:\\users\\user\\desktop\\finalproject\\eventmenegmentuser\\views\\location\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{02E4AF89-EDD3-487E-A69E-9EF608237A69}|EventMenegmentUser\\EventMenegmentAdmin.csproj|solutionrelative:eventmenegmentuser\\views\\location\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{02E4AF89-EDD3-487E-A69E-9EF608237A69}|EventMenegmentUser\\EventMenegmentAdmin.csproj|c:\\users\\user\\desktop\\finalproject\\eventmenegmentuser\\views\\organizer\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{02E4AF89-EDD3-487E-A69E-9EF608237A69}|EventMenegmentUser\\EventMenegmentAdmin.csproj|solutionrelative:eventmenegmentuser\\views\\organizer\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{02E4AF89-EDD3-487E-A69E-9EF608237A69}|EventMenegmentUser\\EventMenegmentAdmin.csproj|c:\\users\\user\\desktop\\finalproject\\eventmenegmentuser\\views\\location\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{02E4AF89-EDD3-487E-A69E-9EF608237A69}|EventMenegmentUser\\EventMenegmentAdmin.csproj|solutionrelative:eventmenegmentuser\\views\\location\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{02E4AF89-EDD3-487E-A69E-9EF608237A69}|EventMenegmentUser\\EventMenegmentAdmin.csproj|c:\\users\\user\\desktop\\finalproject\\eventmenegmentuser\\controllers\\eventcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{02E4AF89-EDD3-487E-A69E-9EF608237A69}|EventMenegmentUser\\EventMenegmentAdmin.csproj|solutionrelative:eventmenegmentuser\\controllers\\eventcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{02E4AF89-EDD3-487E-A69E-9EF608237A69}|EventMenegmentUser\\EventMenegmentAdmin.csproj|c:\\users\\user\\desktop\\finalproject\\eventmenegmentuser\\controllers\\organizercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{02E4AF89-EDD3-487E-A69E-9EF608237A69}|EventMenegmentUser\\EventMenegmentAdmin.csproj|solutionrelative:eventmenegmentuser\\controllers\\organizercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{02E4AF89-EDD3-487E-A69E-9EF608237A69}|EventMenegmentUser\\EventMenegmentAdmin.csproj|c:\\users\\user\\desktop\\finalproject\\eventmenegmentuser\\dto\\organizerdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{02E4AF89-EDD3-487E-A69E-9EF608237A69}|EventMenegmentUser\\EventMenegmentAdmin.csproj|solutionrelative:eventmenegmentuser\\dto\\organizerdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2745880C-04D9-489C-B94A-84DAC377441B}|EventMenegmentSL\\EventMenegmentSL.csproj|c:\\users\\user\\desktop\\finalproject\\eventmenegmentsl\\viewmodel\\organizerviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2745880C-04D9-489C-B94A-84DAC377441B}|EventMenegmentSL\\EventMenegmentSL.csproj|solutionrelative:eventmenegmentsl\\viewmodel\\organizerviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2745880C-04D9-489C-B94A-84DAC377441B}|EventMenegmentSL\\EventMenegmentSL.csproj|c:\\users\\user\\desktop\\finalproject\\eventmenegmentsl\\services\\interfaces\\ieventservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2745880C-04D9-489C-B94A-84DAC377441B}|EventMenegmentSL\\EventMenegmentSL.csproj|solutionrelative:eventmenegmentsl\\services\\interfaces\\ieventservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2745880C-04D9-489C-B94A-84DAC377441B}|EventMenegmentSL\\EventMenegmentSL.csproj|c:\\users\\user\\desktop\\finalproject\\eventmenegmentsl\\services\\interfaces\\iorganizerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2745880C-04D9-489C-B94A-84DAC377441B}|EventMenegmentSL\\EventMenegmentSL.csproj|solutionrelative:eventmenegmentsl\\services\\interfaces\\iorganizerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2745880C-04D9-489C-B94A-84DAC377441B}|EventMenegmentSL\\EventMenegmentSL.csproj|c:\\users\\user\\desktop\\finalproject\\eventmenegmentsl\\services\\interfaces\\igenericservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2745880C-04D9-489C-B94A-84DAC377441B}|EventMenegmentSL\\EventMenegmentSL.csproj|solutionrelative:eventmenegmentsl\\services\\interfaces\\igenericservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,76 +34,89 @@
       "DocumentGroups": [
         {
           "DockedWidth": 267,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 5,
           "Children": [
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
-            },
-            {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\user\\Desktop\\FinalProject\\EventMenegmentUser\\Views\\Location\\Index.cshtml",
-              "RelativeDocumentMoniker": "EventMenegmentUser\\Views\\Location\\Index.cshtml",
-              "ToolTip": "C:\\Users\\user\\Desktop\\FinalProject\\EventMenegmentUser\\Views\\Location\\Index.cshtml",
-              "RelativeToolTip": "EventMenegmentUser\\Views\\Location\\Index.cshtml",
-              "ViewState": "AgIAAB4AAAAAAAAAAAAAAEUAAAA6AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-17T16:13:37.733Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Edit.cshtml",
-              "DocumentMoniker": "C:\\Users\\user\\Desktop\\FinalProject\\EventMenegmentUser\\Views\\Organizer\\Edit.cshtml",
-              "RelativeDocumentMoniker": "EventMenegmentUser\\Views\\Organizer\\Edit.cshtml",
-              "ToolTip": "C:\\Users\\user\\Desktop\\FinalProject\\EventMenegmentUser\\Views\\Organizer\\Edit.cshtml",
-              "RelativeToolTip": "EventMenegmentUser\\Views\\Organizer\\Edit.cshtml",
-              "ViewState": "AgIAABIAAAAAAAAAAAAAACwAAAAxAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-17T15:49:44.916Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Edit.cshtml",
-              "DocumentMoniker": "C:\\Users\\user\\Desktop\\FinalProject\\EventMenegmentUser\\Views\\Location\\Edit.cshtml",
-              "RelativeDocumentMoniker": "EventMenegmentUser\\Views\\Location\\Edit.cshtml",
-              "ToolTip": "C:\\Users\\user\\Desktop\\FinalProject\\EventMenegmentUser\\Views\\Location\\Edit.cshtml",
-              "RelativeToolTip": "EventMenegmentUser\\Views\\Location\\Edit.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-17T16:12:58.065Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "OrganizerController.cs",
-              "DocumentMoniker": "C:\\Users\\user\\Desktop\\FinalProject\\EventMenegmentUser\\Controllers\\OrganizerController.cs",
-              "RelativeDocumentMoniker": "EventMenegmentUser\\Controllers\\OrganizerController.cs",
-              "ToolTip": "C:\\Users\\user\\Desktop\\FinalProject\\EventMenegmentUser\\Controllers\\OrganizerController.cs",
-              "RelativeToolTip": "EventMenegmentUser\\Controllers\\OrganizerController.cs",
-              "ViewState": "AgIAAIUAAAAAAAAAAAAIwKMAAAAlAAAAAAAAAA==",
+              "DocumentIndex": 5,
+              "Title": "IGenericService.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\FinalProject\\EventMenegmentSL\\Services\\Interfaces\\IGenericService.cs",
+              "RelativeDocumentMoniker": "EventMenegmentSL\\Services\\Interfaces\\IGenericService.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\FinalProject\\EventMenegmentSL\\Services\\Interfaces\\IGenericService.cs",
+              "RelativeToolTip": "EventMenegmentSL\\Services\\Interfaces\\IGenericService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAsAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-17T15:50:20.905Z",
+              "WhenOpened": "2025-10-17T17:19:09.233Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "OrganizerDTO.cs",
-              "DocumentMoniker": "C:\\Users\\user\\Desktop\\FinalProject\\EventMenegmentUser\\DTO\\OrganizerDTO.cs",
-              "RelativeDocumentMoniker": "EventMenegmentUser\\DTO\\OrganizerDTO.cs",
-              "ToolTip": "C:\\Users\\user\\Desktop\\FinalProject\\EventMenegmentUser\\DTO\\OrganizerDTO.cs",
-              "RelativeToolTip": "EventMenegmentUser\\DTO\\OrganizerDTO.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAUAAAARAAAAAAAAAA==",
+              "Title": "IOrganizerService.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\FinalProject\\EventMenegmentSL\\Services\\Interfaces\\IOrganizerService.cs",
+              "RelativeDocumentMoniker": "EventMenegmentSL\\Services\\Interfaces\\IOrganizerService.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\FinalProject\\EventMenegmentSL\\Services\\Interfaces\\IOrganizerService.cs",
+              "RelativeToolTip": "EventMenegmentSL\\Services\\Interfaces\\IOrganizerService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAABWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-17T15:49:58.702Z",
+              "WhenOpened": "2025-10-17T17:18:37.937Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "IEventService.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\FinalProject\\EventMenegmentSL\\Services\\Interfaces\\IEventService.cs",
+              "RelativeDocumentMoniker": "EventMenegmentSL\\Services\\Interfaces\\IEventService.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\FinalProject\\EventMenegmentSL\\Services\\Interfaces\\IEventService.cs",
+              "RelativeToolTip": "EventMenegmentSL\\Services\\Interfaces\\IEventService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAUAAABKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-17T17:18:09.079Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "OrganizerViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\FinalProject\\EventMenegmentSL\\ViewModel\\OrganizerViewModel.cs",
+              "RelativeDocumentMoniker": "EventMenegmentSL\\ViewModel\\OrganizerViewModel.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\FinalProject\\EventMenegmentSL\\ViewModel\\OrganizerViewModel.cs",
+              "RelativeToolTip": "EventMenegmentSL\\ViewModel\\OrganizerViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAQAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-17T16:51:39.352Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "OrganizerController.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\FinalProject\\EventMenegmentUser\\Controllers\\OrganizerController.cs",
+              "RelativeDocumentMoniker": "EventMenegmentUser\\Controllers\\OrganizerController.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\FinalProject\\EventMenegmentUser\\Controllers\\OrganizerController.cs",
+              "RelativeToolTip": "EventMenegmentUser\\Controllers\\OrganizerController.cs",
+              "ViewState": "AgIAAHoAAAAAAAAAAAAswA0AAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-17T16:28:13.33Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "EventController.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\FinalProject\\EventMenegmentUser\\Controllers\\EventController.cs",
+              "RelativeDocumentMoniker": "EventMenegmentUser\\Controllers\\EventController.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\FinalProject\\EventMenegmentUser\\Controllers\\EventController.cs",
+              "RelativeToolTip": "EventMenegmentUser\\Controllers\\EventController.cs",
+              "ViewState": "AgIAANcAAAAAAAAAAAAswAsAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-17T17:15:19.424Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
             }
           ]
         }

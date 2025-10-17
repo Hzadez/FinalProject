@@ -237,7 +237,6 @@ namespace EventMenegmentAdmin.Controllers
                 OrganizerId = model.OrganizerId,
                 Participants = model.Participants,
                 Id = model.Id,
-
                 ImageUrl = model.ImageUrl
             };
 

@@ -20,7 +20,6 @@ namespace EventMenegmentAdmin.DTO
         public EventType? EventType { get; set; }
         public Location? Location { get; set; }
         public Organizer? Organizer { get; set; }
-
         public List<LocationViewModel> Locations { get; set; } = new List<LocationViewModel>();
         public List<OrganizerViewModel> Organizers { get; set; } = new List<OrganizerViewModel>();
         public List<EventTypeViewModel> EventTypes { get; set; } = new List<EventTypeViewModel>();

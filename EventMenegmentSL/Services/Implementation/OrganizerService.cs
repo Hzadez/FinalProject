@@ -35,6 +35,8 @@ namespace EventMenegmentSL.Services.Implementation
 
         }
 
+
+
         public async Task<OrganizerViewModel> UpdateAsync(OrganizerViewModel product)
         {
             var existingOrganizer = await _organizerRepository.GetByIdOrganizerWithIncludes(product.Id);

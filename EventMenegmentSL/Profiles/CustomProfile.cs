@@ -17,13 +17,9 @@ namespace EventMenegmentSL.Profiles
             CreateMap<Location, LocationViewModel>().ReverseMap();
             CreateMap<Notification, NotificationViewModel>().ReverseMap();
             CreateMap<Organizer, OrganizerViewModel>().ReverseMap();
-
             CreateMap<Participation, ParticipationViewModel>().ReverseMap();
             CreateMap<UserInvitation, UserInvitationViewModel>().ReverseMap();
             CreateMap<Participation, ParticipationViewModel>().ReverseMap();
-
-
-
 
         }
     }

@@ -17,11 +17,6 @@ namespace EventMenegmentSL.Services.Implementation
             _mapper = mapper;
         }
 
-
-
-
-         
-
         public async Task<LocationViewModel> UpdateAsync(LocationViewModel entity)
         {
             var data = _mapper.Map<Location>(entity);

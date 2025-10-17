@@ -9,6 +9,5 @@ namespace EventMenegmentSL.Services.Interfaces
         public Task<OrganizerViewModel> GetByIdProductWithIncludes(int id);
         public Task<OrganizerViewModel> UpdateAsync(OrganizerViewModel product);
 
-
     }
 }

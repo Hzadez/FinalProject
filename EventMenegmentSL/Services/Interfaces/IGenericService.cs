@@ -9,9 +9,6 @@ namespace EventMenegmentSL.Services.Interfaces
         Task<TVM> GetByIdAsync(int id);
         Task<IEnumerable<TVM>> GetAllAsync();
         Task<TVM> AddAsync(TVM entity);
-
         Task<bool> DeleteAsync(int id);
-
     }
-
 }
