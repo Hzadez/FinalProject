@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("EventMenegmentUI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+80f793a82de9d440d7b3f5606f38c1839d24146e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a104a2cf916fd6b5e3593b31aaa0f7b182e6540e")]
 [assembly: System.Reflection.AssemblyProductAttribute("EventMenegmentUI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("EventMenegmentUI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
