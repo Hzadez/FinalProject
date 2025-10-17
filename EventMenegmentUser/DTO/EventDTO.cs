@@ -13,7 +13,7 @@ namespace EventMenegmentAdmin.DTO
         public DateTime Date { get; set; }
         public string? ImageUrl { get; set; }
         public int EventTypeId { get; set; }
-        public IFormFile? Image { get; set; }
+        public IFormFile Image { get; set; }
         public int LocationId { get; set; }
         public int OrganizerId { get; set; }
         public List<AppUser> Participants { get; set; } = new List<AppUser>();

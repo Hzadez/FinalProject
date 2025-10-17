@@ -12,11 +12,11 @@ namespace EventMenegmentSL.ViewModel
         public int Id { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
-         public int LocationId { get; set; }
+        public int LocationId { get; set; }
         public Location Location { get; set; }
         public DateTime EventDate { get; set; }
         public int Capacity { get; set; }
-      public string EventName { get; set; }
+        public string EventName { get; set; }
         public int InvitationId { get; set; }
         public Invitation Invitation { get; set; }
         public InvitationStatus IsAccepted { get; set; } 
