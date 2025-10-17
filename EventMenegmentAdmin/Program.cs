@@ -1,4 +1,4 @@
-using EventMenegmentDL.Data;
+﻿using EventMenegmentDL.Data;
 using EventMenegmentDL.Entity;
 using EventMenegmentDL.Repository.Implementation;
 using EventMenegmentDL.Repository.Interfaces;
@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.FileProviders;
 
-namespace EventMenegmentAdmin
+namespace EventMenegmentUser
 {
     public class Program
     {
@@ -35,7 +35,7 @@ namespace EventMenegmentAdmin
             builder.Services.AddAutoMapper(typeof(EventMenegmentSL.Profiles.CustomProfile));
             builder.Services.AddScoped<IInvitationService, InvitiationService>();
             builder.Services.AddScoped<INotificationRepository, NotificationRepository>();
-            builder.Services.AddScoped<INotificationService,NotificationService>();
+            builder.Services.AddScoped<INotificationService, NotificationService>();
             builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
             builder.Services.AddScoped<IOrganizerRepository, OrganizeRepository>();
             builder.Services.AddScoped<IOrganizerService, OrganizerService>();
@@ -54,11 +54,16 @@ namespace EventMenegmentAdmin
 
             var app = builder.Build();
 
+            // Admin layihəsinin wwwroot/uploads qovluğunu göstəririk
+            var adminUploads = Path.GetFullPath(
+                Path.Combine(builder.Environment.ContentRootPath, "..", "EventMenegmentUser", "wwwroot", "uploads")
+            );
+
             app.UseStaticFiles(new StaticFileOptions
             {
-                FileProvider = new PhysicalFileProvider(
-                Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images")),
-                RequestPath = "/Images"
+                FileProvider = new PhysicalFileProvider(adminUploads),
+                RequestPath = "/uploads", // UI-da çağırış üçün prefiks
+                ServeUnknownFileTypes = true
             });
 
             // Configure the HTTP request pipeline.

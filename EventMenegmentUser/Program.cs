@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.FileProviders;
 
-namespace EventMenegmentUser
+namespace EventMenegmentAdmin
 {
     public class Program
     {
@@ -51,12 +51,6 @@ namespace EventMenegmentUser
 
             var app = builder.Build();
 
-            app.UseStaticFiles(new StaticFileOptions
-            {
-                FileProvider = new PhysicalFileProvider(
-                Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/uploads")),
-                RequestPath = "/Images"
-            });
 
             // Configure the HTTP request pipeline.
             if (!app.Environment.IsDevelopment())
