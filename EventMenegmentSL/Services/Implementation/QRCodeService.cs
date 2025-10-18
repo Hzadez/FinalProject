@@ -7,8 +7,6 @@ using System.IO;
 
 namespace EventMenegmentSL.Services.Implementation
 {
-   
-
     public class QrCodeService : IQrCodeService
     {
         public byte[] GenerateQrCode(string text)
@@ -18,11 +16,7 @@ namespace EventMenegmentSL.Services.Implementation
 
             var base64Qr = new Base64QRCode(qrCodeData);
             string base64Image = base64Qr.GetGraphic(20); 
-
-            
             return Convert.FromBase64String(base64Image);
         }
-
     }
-
 }

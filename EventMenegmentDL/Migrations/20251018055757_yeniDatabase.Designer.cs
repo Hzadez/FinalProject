@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EventMenegmentDL.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250621112614_InvitationStatus")]
-    partial class InvitationStatus
+    [Migration("20251018055757_yeniDatabase")]
+    partial class yeniDatabase
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -400,9 +400,6 @@ namespace EventMenegmentDL.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("InivitationId")
-                        .HasColumnType("int");
-
                     b.Property<int>("InvitationId")
                         .HasColumnType("int");
 
@@ -458,6 +455,7 @@ namespace EventMenegmentDL.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("UserId")
+                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
@@ -703,7 +701,9 @@ namespace EventMenegmentDL.Migrations
 
                     b.HasOne("EventMenegmentDL.Entity.AppUser", "User")
                         .WithMany("UserInvitations")
-                        .HasForeignKey("UserId");
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Invitation");
 

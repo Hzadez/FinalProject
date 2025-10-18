@@ -55,15 +55,38 @@ namespace EventMenegmentSL.Services.Implementation
 
         public async Task SendToAllUsersAsync(string email, string subject, string message)
         {
-            var client= new SmtpClient("smtp.gmail.com", 587)
+            // 1. Email boşdursa və ya səhv formatdadırsa, göndərmə
+            if (string.IsNullOrWhiteSpace(email))
+                return;
+
+            email = email.Trim();
+            if (!MailAddress.TryCreate(email, out var toAddress))
+                return; // düzgün formatda deyilsə, atla
+
+            // 2. SMTP müştərisini qur
+            using var client = new SmtpClient("smtp.gmail.com", 587)
             {
-                Credentials = new NetworkCredential("zeynaleh@code.edu.az", "nemw wxgk vlzm lksz"),
-                EnableSsl = true
+                EnableSsl = true,
+                UseDefaultCredentials = false,
+                Credentials = new NetworkCredential(
+                    "zeynaleh@code.edu.az",        // GMAIL adresin
+                    "nemw wxgk vlzm lksz"          // App Password (2FA üçün)
+                )
             };
-            await client.SendMailAsync("zeynaleh@code.edu.az", email, subject, message);
+
+            // 3. Mesajı hazırla
+            var mail = new MailMessage
+            {
+                From = new MailAddress("zeynaleh@code.edu.az", "Event Manager"),
+                Subject = subject,
+                Body = message,
+                IsBodyHtml = false
+            };
+
+            mail.To.Add(toAddress);
+
+            // 4. Göndər
+            await client.SendMailAsync(mail);
         }
-
-    
     }
-
 }

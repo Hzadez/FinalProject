@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\user\\Desktop\\FinalProject\\EventMenegmentDL\\EventMenegmentDL.csproj": {}
+    "C:\\Users\\user\\Desktop\\Backend\\FinalProject\\EventMenegmentDL\\EventMenegmentDL.csproj": {}
   },
   "projects": {
-    "C:\\Users\\user\\Desktop\\FinalProject\\EventMenegmentDL\\EventMenegmentDL.csproj": {
+    "C:\\Users\\user\\Desktop\\Backend\\FinalProject\\EventMenegmentDL\\EventMenegmentDL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\user\\Desktop\\FinalProject\\EventMenegmentDL\\EventMenegmentDL.csproj",
+        "projectUniqueName": "C:\\Users\\user\\Desktop\\Backend\\FinalProject\\EventMenegmentDL\\EventMenegmentDL.csproj",
         "projectName": "EventMenegmentDL",
-        "projectPath": "C:\\Users\\user\\Desktop\\FinalProject\\EventMenegmentDL\\EventMenegmentDL.csproj",
+        "projectPath": "C:\\Users\\user\\Desktop\\Backend\\FinalProject\\EventMenegmentDL\\EventMenegmentDL.csproj",
         "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\user\\Desktop\\FinalProject\\EventMenegmentDL\\obj\\",
+        "outputPath": "C:\\Users\\user\\Desktop\\Backend\\FinalProject\\EventMenegmentDL\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace EventMenegmentDL.Migrations
 {
     /// <inheritdoc />
-    public partial class first : Migration
+    public partial class yeniDatabase : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -345,10 +345,10 @@ namespace EventMenegmentDL.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    IvitationId = table.Column<int>(type: "int", nullable: false),
+                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    InvitationId = table.Column<int>(type: "int", nullable: false),
                     CheckInTime = table.Column<DateTime>(type: "datetime2", nullable: false),
                     SeatNumber = table.Column<int>(type: "int", nullable: false),
-                    InvitationId = table.Column<int>(type: "int", nullable: false),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: false)
@@ -356,6 +356,12 @@ namespace EventMenegmentDL.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Participations", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Participations_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Participations_Invitations_InvitationId",
                         column: x => x.InvitationId,
@@ -373,7 +379,7 @@ namespace EventMenegmentDL.Migrations
                     InvitationId = table.Column<int>(type: "int", nullable: false),
                     UserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     SentAt = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    IsAccepted = table.Column<bool>(type: "bit", nullable: true),
+                    IsAccepted = table.Column<int>(type: "int", nullable: false),
                     EventId = table.Column<int>(type: "int", nullable: true),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
@@ -479,6 +485,11 @@ namespace EventMenegmentDL.Migrations
                 name: "IX_Participations_InvitationId",
                 table: "Participations",
                 column: "InvitationId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Participations_UserId",
+                table: "Participations",
+                column: "UserId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_UserInvitations_EventId",

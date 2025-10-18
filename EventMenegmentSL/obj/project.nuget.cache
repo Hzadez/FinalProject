@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "SMRZX9dmXl4=",
+  "dgSpecHash": "IEg+cUa6wfM=",
   "success": true,
-  "projectFilePath": "C:\\Users\\user\\Desktop\\FinalProject\\EventMenegmentSL\\EventMenegmentSL.csproj",
+  "projectFilePath": "C:\\Users\\user\\Desktop\\Backend\\FinalProject\\EventMenegmentSL\\EventMenegmentSL.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\user\\.nuget\\packages\\automapper\\14.0.0\\automapper.14.0.0.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",

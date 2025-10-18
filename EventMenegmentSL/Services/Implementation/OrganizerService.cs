@@ -37,20 +37,20 @@ namespace EventMenegmentSL.Services.Implementation
 
 
 
-        public async Task<OrganizerViewModel> UpdateAsync(OrganizerViewModel product)
+        public async Task<OrganizerViewModel> UpdateAsync(OrganizerViewModel model)
         {
-            var existingOrganizer = await _organizerRepository.GetByIdOrganizerWithIncludes(product.Id);
-            if (existingOrganizer == null)
-            {
-                throw new KeyNotFoundException($"Organizer with ID {product.Id} not found.");
-            }
-            var updatedOrganizer = _mapper.Map<Organizer>(product);
-            var result = await _organizerRepository.Update(updatedOrganizer);
-            if (result == null)
-            {
-                return null;
-            }
-            return _mapper.Map<OrganizerViewModel>(result);
+            var existing = await _organizerRepository.GetByIdOrganizerWithIncludes(model.Id);
+            if (existing == null)
+                throw new KeyNotFoundException($"Organizer with ID {model.Id} not found.");
+
+            // YENİ obyekt yaratma! Mövcud tracked entity-nin ÜZƏRİNƏ map et
+            _mapper.Map(model, existing);
+
+            // Repo sadəcə SaveChanges etsin, Update() çağırma
+            var saved = await _organizerRepository.Update(existing);
+
+            return _mapper.Map<OrganizerViewModel>(saved);
         }
+
     }
 }

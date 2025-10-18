@@ -160,14 +160,15 @@ namespace EventMenegmentAdmin.Controllers
             var usrs =  _userManager.Users.ToList();
             foreach (var item in usrs)
             {
-            var token = await _userManager.GenerateUserTokenAsync(item, "Default", "EventNotification");
-                var email = item.Email;
-               var subject = "New Event Created";
-                var message = $"A new event '{model.Name}' has been created. Check it out here: https://localhost:7232/Events";
-               
-                await _notificationService.SendToAllUsersAsync(email, subject, message);
-                
+                if (string.IsNullOrWhiteSpace(item.Email))
+                    continue;
 
+                var token = await _userManager.GenerateUserTokenAsync(item, "Default", "EventNotification");
+                var email = item.Email;
+                var subject = "New Event Created";
+                var message = $"A new event '{model.Name}' has been created. Check it out here: https://localhost:7232/Events";
+
+                await _notificationService.SendToAllUsersAsync(email, subject, message);
             }
             return RedirectToAction("Index");
         }

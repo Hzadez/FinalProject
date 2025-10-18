@@ -7842,11 +7842,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\user\\Desktop\\FinalProject\\EventMenegmentUser\\EventMenegmentAdmin.csproj",
+      "projectUniqueName": "C:\\Users\\user\\Desktop\\Backend\\FinalProject\\EventMenegmentUser\\EventMenegmentAdmin.csproj",
       "projectName": "EventMenegmentAdmin",
-      "projectPath": "C:\\Users\\user\\Desktop\\FinalProject\\EventMenegmentUser\\EventMenegmentAdmin.csproj",
+      "projectPath": "C:\\Users\\user\\Desktop\\Backend\\FinalProject\\EventMenegmentUser\\EventMenegmentAdmin.csproj",
       "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\user\\Desktop\\FinalProject\\EventMenegmentUser\\obj\\",
+      "outputPath": "C:\\Users\\user\\Desktop\\Backend\\FinalProject\\EventMenegmentUser\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -7868,8 +7868,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\user\\Desktop\\FinalProject\\EventMenegmentSL\\EventMenegmentSL.csproj": {
-              "projectPath": "C:\\Users\\user\\Desktop\\FinalProject\\EventMenegmentSL\\EventMenegmentSL.csproj"
+            "C:\\Users\\user\\Desktop\\Backend\\FinalProject\\EventMenegmentSL\\EventMenegmentSL.csproj": {
+              "projectPath": "C:\\Users\\user\\Desktop\\Backend\\FinalProject\\EventMenegmentSL\\EventMenegmentSL.csproj"
             }
           }
         }

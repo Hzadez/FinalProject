@@ -10,5 +10,4 @@ namespace EventMenegmentSL.Services.Interfaces
     {
         byte[] GenerateQrCode(string text);
     }
-
 }

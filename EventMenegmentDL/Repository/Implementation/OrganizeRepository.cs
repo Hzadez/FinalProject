@@ -25,12 +25,12 @@ namespace EventMenegmentDL.Repository.Implementation
             return data;
         }
 
-        public async Task<Organizer> Update(Organizer product)
+        public async Task<Organizer> Update(Organizer entity)
         {
-            var data = await _context.Organizers.FirstOrDefaultAsync(o => o.Id == product.Id);
-            _context.Update(product);
+            // BURADA _context.Update çağırmırıq, çünki entity artıq tracked-dir
             await _context.SaveChangesAsync();
-            return data;
+            return entity;
         }
+
     }
 }
